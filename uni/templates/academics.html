@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Academics Hub</h1>
+    
+    <h2>Study Groups</h2>
+    <div class="group-grid">
+        {% for group in groups %}
+            <div class="group-card">
+                <h3>{{ group.name }}</h3>
+                <p>Branch: {{ group.branch.name }}</p>
+                <p>{{ group.students.count }} Students Enrolled</p>
+            </div>
+        {% empty %}
+            <div class="group-card group-card-empty">
+                <p>No active groups found. Go to the Admin Console to create one.</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>Registered Students</h2>
+    <div class="card-no-padding">
+        <table class="data-table">
+            <tr>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Contact</th>
+                <th>Parent</th>
+            </tr>
+            
+            {% for student in students %}
+            <tr>
+                <td><strong>{{ student.first_name }} {{ student.last_name }}</strong></td>
+                <td>{{ student.branch.name }}</td>
+                <td>{{ student.phone }}</td>
+                <td>{{ student.parent_name }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center; padding: 20px;">No students registered yet.</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+{% endblock content %}

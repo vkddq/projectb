@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Master Schedule</h1>
+    
+    <div class="card-no-padding">
+        <table class="data-table">
+            <tr>
+                <th>Date & Time</th>
+                <th>Subject</th>
+                <th>Teacher</th>
+                <th>Attendees</th>
+                <th>Status</th>
+            </tr>
+            
+            {% for lesson in lessons %}
+            <tr>
+                <td>
+                    {{ lesson.date|date:"M d, Y" }} <br> 
+                    <small style="color: #bbb;">{{ lesson.start_time|time:"H:i" }} - {{ lesson.end_time|time:"H:i" }}</small>
+                </td>
+                <td><strong>{{ lesson.subject.name }}</strong></td>
+                <td>{{ lesson.teacher.first_name }} {{ lesson.teacher.last_name }}</td>
+                <td>
+                    {% if lesson.group %}
+                        Group: {{ lesson.group.name }}
+                    {% elif lesson.student %}
+                        Student: {{ lesson.student.first_name }}
+                    {% else %}
+                        <span style="color: #888;">Unassigned</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <span class="badge 
+                        {% if lesson.status == 'SCHEDULED' %}badge-scheduled
+                        {% elif lesson.status == 'COMPLETED' %}badge-completed
+                        {% else %}badge-cancelled{% endif %}">
+                        {{ lesson.status }}
+                    </span>
+                </td>
+            </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 20px;">No lessons scheduled yet.</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

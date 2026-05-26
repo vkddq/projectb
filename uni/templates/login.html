@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card login-card">
+    <h2 style="margin-top: 0;">System Login</h2>
+    <p class="login-subtitle">Please enter your credentials to access the portal.</p>
+
+    <div id="errorMessage" class="alert-error"></div>
+
+    <form id="jwtLoginForm">
+        <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="text" id="phone" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" id="password" class="form-input" required>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Log In</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('jwtLoginForm').addEventListener('submit', async function(event) {
+   
+    event.preventDefault(); 
+    
+   
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    const errorDiv = document.getElementById('errorMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    
+    errorDiv.style.display = 'none';
+    submitBtn.innerText = 'Authenticating...';
+    submitBtn.disabled = true;
+
+    try {
+        
+        const response = await fetch('/api/token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                phone_number: phone, 
+                password: password 
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            localStorage.setItem('access_token', data.access);
+            localStorage.setItem('refresh_token', data.refresh);
+            
+        
+            window.location.href = '/dashboard/';
+        } else {
+            
+            errorDiv.innerText = 'Invalid phone number or password.';
+            errorDiv.style.display = 'block';
+            submitBtn.innerText = 'Log In';
+            submitBtn.disabled = false;
+        }
+    } catch (error) {
+        errorDiv.innerText = 'Network error. Cannot reach the server.';
+        errorDiv.style.display = 'block';
+        submitBtn.innerText = 'Log In';
+        submitBtn.disabled = false;
+    }
+});
+</script>
+{% endblock content %}

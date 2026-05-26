@@ -1,0 +1,275 @@
+.group-grid {
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.group-card {
+    flex: 1; 
+    min-width: 250px; 
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #50fa7b; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.group-card-empty {
+    width: 100%;
+    text-align: center;
+    border-left: 4px solid #ff5555; 
+}
+
+.card-no-padding {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.data-table {
+    width: 100%; 
+    text-align: left; 
+    border-collapse: collapse;
+    color: white;
+}
+
+.data-table th {
+    padding: 15px;
+    background-color: #222;
+    border-bottom: 1px solid #444;
+    color: #8be9fd; 
+}
+
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.data-table tr:hover {
+    background-color: #2a2a2a; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #0a0a0a; 
+    color: #e0e0e0; 
+}
+
+h1, h2, h3 { 
+    color: #ffffff; 
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+}
+
+.card { 
+    background-color: #141414; 
+    padding: 20px; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    border: 1px solid #222;
+}
+
+nav { 
+    background-color: #000000; 
+    padding: 15px 30px; 
+    border-bottom: 1px solid #333; 
+    display: flex; 
+    gap: 20px; 
+    align-items: center;
+}
+
+nav a { 
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+nav a:hover { 
+    color: #888; 
+}
+
+.nav-right {
+    margin-left: auto; 
+    display: flex; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.btn-nav-primary {
+    background-color: #ffb86c; 
+    color: #000 !important; 
+    padding: 8px 16px; 
+    border-radius: 4px;
+}
+
+.btn-nav-primary:hover {
+    background-color: #ffc996;
+}
+
+.text-danger {
+    color: #ff5555 !important;
+}
+
+.text-danger:hover {
+    color: #ff8888 !important;
+}
+
+.card-welcome {
+    margin-top: 20px; 
+    border-left: 4px solid #ffb86c; 
+}
+
+.card-welcome h1 {
+    margin-top: 0;
+}
+
+.text-muted-large {
+    color: #bbb; 
+    font-size: 1.1em;
+}
+
+.role-badge {
+    background-color: #222; 
+    padding: 15px; 
+    border-radius: 4px; 
+    display: inline-block; 
+    margin-top: 15px;
+}
+
+.role-label {
+    color: #888; 
+    text-transform: uppercase; 
+    font-size: 0.8em; 
+    letter-spacing: 1px;
+}
+
+.role-value {
+    color: #ffb86c; 
+    font-size: 1.5em;
+}
+
+.branch-card {
+    flex: 1; 
+    min-width: 250px; 
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid #bd93f9; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.branch-card h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.branch-card p {
+    margin: 8px 0;
+    color: #cccccc;
+}
+
+.text-active {
+    color: #50fa7b; 
+    font-weight: bold;
+}
+
+.text-archived {
+    color: #ff5555; 
+    font-weight: bold;
+}
+
+.login-card {
+    max-width: 400px; 
+    margin: 50px auto; 
+    text-align: center; 
+    border-top: 4px solid #ffb86c;
+}
+
+.login-subtitle {
+    color: #888; 
+    margin-bottom: 20px; 
+    font-size: 0.9em;
+}
+
+.alert-error {
+    background-color: #ff5555; 
+    color: white; 
+    padding: 10px; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    font-weight: bold;
+    display: none; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+    text-align: left;
+}
+
+.form-label {
+    display: block; 
+    margin-bottom: 5px; 
+    color: #e0e0e0; 
+    font-size: 0.9em;
+}
+
+.form-input {
+    width: 100%; 
+    padding: 10px; 
+    background-color: #222; 
+    border: 1px solid #444; 
+    color: white; 
+    border-radius: 4px; 
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%; 
+    padding: 12px; 
+    background-color: #ffb86c; 
+    color: #000; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    text-transform: uppercase; 
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #ffc996;
+}
+
+.badge {
+    padding: 4px 10px; 
+    border-radius: 12px; 
+    font-size: 0.8em; 
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.badge-scheduled {
+    background-color: #f1fa8c; 
+    color: #000;
+}
+
+.badge-completed {
+    background-color: #50fa7b; 
+    color: #000;
+}
+
+.badge-cancelled {
+    background-color: #ff5555; 
+    color: #fff;
+}
