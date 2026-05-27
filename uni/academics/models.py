@@ -1,10 +1,12 @@
 from django.db import models
 from branches.models import Branch
+from django.conf import settings
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, related_name='subjects')
     is_active = models.BooleanField(default=True)
+    teacher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='subjects_taught')
 
     class Meta:
         unique_together = ('name', 'branch') 
