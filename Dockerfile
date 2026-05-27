@@ -12,4 +12,4 @@ COPY . /app/
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py migrate && gunicorn uni.uni.wsgi:application --bind 0.0.0.0:8000"]
+CMD ["sh", "-c", "python uni/manage.py migrate && gunicorn uni.uni.wsgi:application --bind 0.0.0.0:8000"]
